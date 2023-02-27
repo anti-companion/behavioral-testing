@@ -1,7 +1,7 @@
 # https://github.com/PygmalionAI/gradio-ui/blob/master/src/parsing.py
 
-import re
 import typing as t
+import re
 
 
 def parse_messages_from_str(string: str, names: t.List[str]) -> t.List[str]:

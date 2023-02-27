@@ -1,12 +1,13 @@
+from time import perf_counter
 from typing import Any, List, Optional
+
 import torch
 from pydantic import BaseModel
+
 from models.pygmalion.parsing import parse_messages_from_str
-
 from models.pygmalion.prompting import build_prompt_for
-from .model import build_model_and_tokenizer_for, run_raw_inference
 
-from time import perf_counter
+from .model import build_model_and_tokenizer_for, run_raw_inference
 
 
 class GenerationSettings(BaseModel):
