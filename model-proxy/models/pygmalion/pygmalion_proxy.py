@@ -28,6 +28,7 @@ class PygmalionRequest(BaseModel):
     char_persona: str
     example_dialogue: str
     world_scenario: str
+    char_greeting: str
     generation_settings: Optional[GenerationSettings] = GenerationSettings()
 
 
@@ -53,9 +54,11 @@ class PygmalionProxy:
         bot_message = f"{request.char_name}: {request.char_greeting}"
         return PygmalionResponse(
             bot_message=bot_message,
-            device_name=self.hardware,
+            device_name=self.device_name,
+            vram=self.vram,
             model_name=self.model_name,
             elapsed_time=perf_counter() - start_time,
+            request=request,
         )
 
     def generate(self, request: PygmalionRequest):
